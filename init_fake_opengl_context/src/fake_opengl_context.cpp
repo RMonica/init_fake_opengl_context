@@ -74,14 +74,14 @@ void InitFakeOpenGLContext(const std::string display_name) {
 
     GLXContext openGLContext = glXCreateContextAttribsARB(display, fbConfigs[FB_CONFIG], 0, True, context_attribs);
 
-//    int pbufferAttribs[] = {
-//        GLX_PBUFFER_WIDTH, 32,
-//        GLX_PBUFFER_HEIGHT, 32,
-//        None
-//    };
+    int pbufferAttribs[] = {
+        GLX_PBUFFER_WIDTH, 32,
+        GLX_PBUFFER_HEIGHT, 32,
+        None
+    };
 
-//    GLXPbuffer pbuffer = glXCreatePbuffer(display, fbConfigs[FB_CONFIG], pbufferAttribs);
-    GLXPbuffer pbuffer = None; // use GLX_ARB_create_context
+    GLXPbuffer pbuffer = glXCreatePbuffer(display, fbConfigs[FB_CONFIG], pbufferAttribs);
+//    GLXPbuffer pbuffer = None; // use GLX_ARB_create_context
 
     XFree(fbConfigs);
     XSync(display, False);
